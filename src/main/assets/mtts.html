@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<style type="text/css">
+	  @font-face{
+font-family: 'solaimanlipi';
+src: url('soli.ttf');
+}
+*{
+font-family: 'solaimanlipi';
+}
+	body{
+ background: #ffff00;
+ text-align: center;
+
+
+	}
+	input, select{
+	background: #ffff00;
+}
+a{text-decoration: none;
+  border: 2px solid black;
+  color:black;
+ padding: 2px;}
+	.nnum{
+		border-radius: 15px;
+		background: cyan;
+		padding:10px;
+	}
+	table{
+		width: 100%;
+		
+    position: relative;
+	}
+	
+	tr:nth-child(even) {
+    background-color: #ffdd00;
+}
+tr:nth-child(odd) {
+    background-color: #ffee00;
+}
+tr:hover{
+		background: green;
+		color: black;
+	}
+tr > :first-child{
+background: #ffee00;
+position: sticky;
+left:0;
+}
+
+th{
+position: sticky;
+top:0;
+background: #ffee00;
+z-index:2;
+}
+th:first-child{
+z-index:4; }
+.bor{
+	border: solid 2px black;
+}
+.mini{
+	font-size: 9px;
+}
+#clock{
+	font-size: 50px;
+}
+.tab{
+	overflow-x:auto;
+max-height: 500px;
+}
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: rgb(255,199,0);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+
+
+
+
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+
+}
+.right{position: fixed;right: 0;}
+</style>
+</head>
+
+<body onload="startTime()">
+	<script type="text/javascript" src="1.js"></script>
+		<script type="text/javascript" src="2.js"></script>
+			<script type="text/javascript" src="3.js"></script>
+				<script type="text/javascript" src="4.js"></script>
+					<script type="text/javascript" src="5.js"></script>
+						<script type="text/javascript" src="6.js"></script>
+							<script type="text/javascript" src="7.js"></script>
+								<script type="text/javascript" src="8.js"></script>
+									<script type="text/javascript" src="9.js"></script>
+										<script type="text/javascript" src="10.js"></script>
+											<script type="text/javascript" src="11.js"></script>
+												<script type="text/javascript" src="12.js"></script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		function tts(nth){
+var tts1 = document.querySelectorAll("td:nth-child("+nth+")");
+for (var i = 0; i<tts1.length; i++) { 
+  console.log (tts1[i].innerText); 
+ 
+ var msg = new SpeechSynthesisUtterance(tts1[i].innerText);
+window.speechSynthesis.speak(msg);
+} 
+}
+
+
+
+/* /\ for tts */
+/* \/ for navbar*/
+function openNav() {
+    document.getElementById("mySidenav").style.width = "70%";
+}
+
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
+var start = null; window.addEventListener("touchstart",function(event){ if(event.touches.length === 1){ 
+start = event.touches.item(0).clientX; }else{ 
+start = null; } });
+window.addEventListener("touchend",function(event){ var offset = 200;
+if(start){var end = event.changedTouches.item(0).clientX;
+ if(end > start + offset){closeNav();} 
+if(end < start - offset ){  openNav(); } } });
+
+
+
+
+
+		function bnn(enn){
+			
+			
+			return enn;
+
+		}
+</script><div id="main" onclick="closeNav()">
+<img src="top.svg" width="100%"><div class="bor">
+	<div class="mini">রাজশাহী জেলার জন্য সময়সুচি নির্ধারণের ক্ষেত্রে ঢাকার সময় থেকে ০৬ মিনিট পরে ধরা হয়েছে।
+	<br>(ক্যালেন্ডার উল্লেখিত শেষ সময় থেকে বাগমারা, দুর্গাপুর, পুঠিয়া, চারঘাট ও বাঘা এলাকায় ২ মিনিট আগে সাহরী শেষ করতে হবে)</div>
+
+<div id="clock" ></div>
+<select name="mon" oninput="showmonth(this.value);">
+		<option>মাস নির্বাচন করুন</option>
+		<option value="1">জানুয়ারি</option>
+		<option value="2">ফেব্রুয়ারি</option>
+		<option value="3">মার্চ</option>
+		<option value="4">এপ্রিল</option>
+		<option value="5">মে</option>
+		<option value="6">জুন</option>
+		<option value="7">জুলাই</option>
+		<option value="8">আগস্ট</option>
+		<option value="9">সেপ্টেম্বর</option>
+		<option value="10">অক্টোবর</option>
+		<option value="11">নভেম্বর</option>
+		<option value="12">ডিসেম্বর</option>
+	
+	</select>
+
+<div id="today"></div>
+<div class="tab">
+<table id="intab">
+	
+	
+	
+	
+</table>
+</div>
+
+</div>
+</div><br>
+<a class="right" href="javascript:openNav();">☰ মেনু</a>
+</div>
+<div  id="mySidenav" class="sidenav" >
+	<a href="javascript:closeNav();">------&gt;</a>
+<br><br>
+<a href="index.html">আজকের তারিখ</a></div>
+<script type="text/javascript">
+var $_get=[];
+
+var d = new Date();
+
+var dat="";
+var mon="";
+var day="";
+var hou="";
+var min="";
+function showmonth(taking){
+	
+mon=Number(taking)-1;
+switch(mon){
+
+
+case 0:
+var obj = JSON.parse(jan);
+break;
+
+case 1:
+var obj = JSON.parse(feb);
+break;
+case 2:
+var obj = JSON.parse(mar);
+break;
+case 3:
+var obj = JSON.parse(apr);
+break;
+case 4:
+var obj = JSON.parse(may);
+break;
+case 5:
+var obj = JSON.parse(jun);
+break;
+case 6:
+var obj = JSON.parse(jul);
+break;
+case 7:
+var obj = JSON.parse(aug);
+break;
+case 8:
+var obj = JSON.parse(sep);
+break;
+case 9:
+var obj = JSON.parse(oct);
+break;
+case 10:
+var obj = JSON.parse(nov);
+break;
+case 11:
+var obj = JSON.parse(dec);
+break;
+
+}
+
+
+
+
+
+
+var intabv=`<thead><th onclick="tts(1)">তারিখ</th><th onclick="tts(2)">তাহাজ্জুত ও সাহরীর<br>শেষ সময়</th><th onclick="tts(3)">ফজর শুরু</th><th onclick="tts(4)">ফজর শেষ(সুর্যদয়)</th><th onclick="tts(5)">ইশরাক শুরু</th><th onclick="tts(6)">চাশত শুরু</th><th onclick="tts(7)">মধ্য দিবস:</th><th onclick="tts(8)">যোহর শুরু</th><th onclick="tts(9)">আসর শুরু</th><th onclick="tts(10)">সুর্যাস্ত</th><th onclick="tts(11)">মাগরিব ও ইফতার</th><th onclick="tts(12)">ইশা শুরু</th></thead>`;
+
+var mona=["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বার"];
+
+
+_("today").innerHTML="দেখানো হচ্ছেঃ "+bnn(mona[mon]);
+
+for (var i = 0; i < 31; i++) {
+	if(obj[i].DATE!=null){
+	intabv+=`<tr><td>${bnn(obj[i].DATE)}</td><td>${bnn(obj[i].TAHAJJUT_SAHRILASTTIME)}</td><td>${bnn(obj[i].FAZRSTART)}</td><td>${bnn(obj[i].FAZRFINISH)}</td><td>${bnn(obj[i].ISHROK)}</td><td>${bnn(obj[i].CHAST)}</td><td>${bnn(obj[i].MIDLEDAY)}</td><td>${bnn(obj[i].ZOHRSTART)}</td><td>${bnn(obj[i].ASRSTART)}</td><td>${bnn(obj[i].SUNSET)}</td><td>${bnn(obj[i].MAGRIB_IFTAR)}</td><td>${bnn(obj[i].ISHASTART)}</td></tr>`;}
+}
+_("intab").innerHTML=intabv;
+
+
+}
+
+
+
+
+
+
+
+
+	function _(dom) {
+			return document.getElementById(dom);
+		}
+		
+
+function startTime() {
+
+
+
+
+function ampm(th){
+if(th>12){return th-12; }
+else{return th; }
+}
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    
+    document.getElementById('clock').innerHTML =
+    bnn(ampm(h)) + " : " + bnn(m) + " : " + bnn(s);
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+</script>
+</body>
+</html>
