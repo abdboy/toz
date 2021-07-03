@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title></title>
+	
+
+<style type="text/css">
+
+	  @font-face{
+font-family: 'solaimanlipi';
+src: url('soli.ttf');
+}
+*{
+font-family: 'solaimanlipi';
+}
+	body{
+ background: #ffff00;
+ text-align: center;
+
+
+	}
+	input,select{
+	background: #ffff00;
+}
+a, summary{text-decoration: none;
+  border: 2px solid black;
+  color:black;
+ padding: 2px;}
+	.nnum{
+		border-radius: 15px;
+		background: cyan;
+		padding:10px;
+	}
+	table{
+		width: 100%;
+		
+
+	}
+	
+	tr:nth-child(even) {
+    background-color: #ffdd00;
+}
+tr:nth-child(odd) {
+    background-color: #ffee00;
+}
+tr:hover{
+		background: green;
+		color: black;
+	}
+.bor{
+	border: solid 2px black;
+}
+.mini{
+	font-size: 9px;
+}
+#clock{
+	font-size: 50px;
+}
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: rgb(255,199,0);
+    overflow-x: auto; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+
+
+
+
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+
+}
+
+.sidenav input,select{
+	background: rgb(255,199,0);
+}
+
+</style>
+</head>
+
+<body id="bdy" onload="startTime()" >
+
+	<script type="text/javascript" src="1.js"></script>
+		<script type="text/javascript" src="2.js"></script>
+			<script type="text/javascript" src="3.js"></script>
+				<script type="text/javascript" src="4.js"></script>
+					<script type="text/javascript" src="5.js"></script>
+						<script type="text/javascript" src="6.js"></script>
+							<script type="text/javascript" src="7.js"></script>
+								<script type="text/javascript" src="8.js"></script>
+									<script type="text/javascript" src="9.js"></script>
+										<script type="text/javascript" src="10.js"></script>
+											<script type="text/javascript" src="11.js"></script>
+												<script type="text/javascript" src="12.js"></script>
+
+	<script>
+		var now=1.4;
+
+function openNav() {
+    window.scrollTo(0,0); document.getElementById("mySidenav").style.width = "70%"; 
+}
+
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
+var start = null; window.addEventListener("touchstart",function(event){ if(event.touches.length === 1){ 
+start = event.touches.item(0).clientX; }else{ 
+start = null; } });
+window.addEventListener("touchend",function(event){ var offset = 200;
+if(start){var end = event.changedTouches.item(0).clientX;
+ if(end > start + offset){closeNav();} 
+if(end < start - offset ){  openNav(); } } });
+
+
+		function bnn(enn){
+			enn=String(enn);
+			var tempnum=enn.split("");
+			var tempres="";
+			for (var i = 0; i < tempnum.length; i++) {
+				switch(tempnum[i]){
+					case "0": case 0: tempres+="০"; break;
+					case "1": case 1: tempres+="১"; break;
+					case "2": case 2: tempres+="২"; break;
+					case "3": case 3: tempres+="৩"; break;
+					case "4": case 4: tempres+="৪"; break;
+					case "5": case 5: tempres+="৫"; break;
+					case "6": case 6: tempres+="৬"; break;
+					case "7": case 7: tempres+="৭"; break;
+					case "8": case 8: tempres+="৮"; break;
+					case "9": case 9: tempres+="৯"; break;
+					case ".":         tempres+=":"; break;
+					default : tempres+=tempnum[i]; 
+					
+				}
+				
+			}
+			
+			return tempres;
+
+		}
+var $_get=[];
+window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(a,name,value){$_get[name]=value;});
+
+var d = new Date();
+
+var dat=d.getDate();
+var mon=d.getMonth();
+var day=d.getDay();
+var hou=d.getHours();
+var min=d.getMinutes();
+
+
+		
+</script><div id="main" onclick="closeNav();">
+<img src="top.svg" width="100%"><div class="bor">
+	<br><a id="urll"></a><br><br>
+	<script>
+var xmlhttp = new XMLHttpRequest();
+
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log(xmlhttp.responseText);
+        var myArr = JSON.parse(xmlhttp.responseText);
+
+        myF(myArr);
+      
+    }
+};
+xmlhttp.open("GET", "https://api.github.com/repos/abdboy/toz/releases/latest", true);
+xmlhttp.send();
+
+function myF(arr) {
+   
+   
+   
+	var f2=arr.assets[0].browser_download_url;
+        
+
+        
+    document.getElementById("urll").href = f2;
+      document.getElementById("urll").innerHTML = "Download latest version of this app";
+}
+	
+
+	
+</script>
+	<div class="mini">রাজশাহী জেলার জন্য সময়সুচি নির্ধারণের ক্ষেত্রে ঢাকার সময় থেকে ০৬ মিনিট পরে ধরা হয়েছে।
+	<br>(ক্যালেন্ডার উল্লেখিত শেষ সময় থেকে বাগমারা, দুর্গাপুর, পুঠিয়া, চারঘাট ও বাঘা এলাকায় ২ মিনিট আগে সাহরী শেষ করতে হবে)</div>
+দেখানো হচ্ছেঃ <span id="today" ></span><br>
+<div id="clock" ></div>
+<table >
+	<tr><th>ওয়াক্ত</th><th>সময়</th><th>আর বাকি</th></tr>
+	<tr><td>তাহাজ্জুত ও সাহরীর<br>শেষ সময়</td><td><span class="num" id="TAHAJJUT_SAHRILASTTIME" ></span></td><td id="th"></td></tr>
+	<tr><td>ফজর শুরু</td><td><span class="num" id="FAZRSTART" ></span></td><td id="fs"></td></tr>
+	<tr><td>ফজর শেষ(সুর্যদয়)</td><td><span class="num" id="FAZRFINISH" ></span></td><td id="ff"></td></tr>
+	<tr><td>ইশরাক শুরু</td><td><span class="num" id="ISHROK" ></span></td><td id="i"></td></tr>
+	<tr><td>চাশত শুরু</td><td><span class="num" id="CHAST" ></span></td><td id="c"></td></tr>
+	<tr><td>মধ্য দিবস</td><td><span class="num" id="MIDLEDAY" ></span></td><td id="md"></td></tr>
+	<tr><td>যোহর শুরু</td><td><span class="num" id="ZOHRSTART" ></td><td id="zs"></td></tr>
+	<tr><td>আসর শুরু</td><td><span class="num" id="ASRSTART" ></span></td><td id="as"></td></tr>
+	<tr><td>সুর্যাস্ত</td><td><span class="num" id="SUNSET" ></span></td><td id="s"></td></tr>
+	<tr><td>মাগরিব ও ইফতার</td><td><span class="num" id="MAGRIB_IFTAR" ></span></td><td id="mi"></td></tr>
+	<tr><td>ইশা শুরু</td><td><span class="num" id="ISHASTART" ></span></td><td id="is"></td></tr>
+
+	
+</table>
+</div><br>
+<a class="right" href="javascript:openNav();">☰ মেনু</a>
+</div>
+<div  id="mySidenav" class="sidenav" >
+	<a href="javascript:closeNav();">------&gt;</a>
+<form method="get" action="index.html"><fieldset><legend>পছন্দমতো তারিখ</legend>
+	 মাসঃ<select name="mon">
+		<option value="1">জানুয়ারি</option>
+		<option value="2">ফেব্রুয়ারি</option>
+		<option value="3">মার্চ</option>
+		<option value="4">এপ্রিল</option>
+		<option value="5">মে</option>
+		<option value="6">জুন</option>
+		<option value="7">জুলাই</option>
+		<option value="8">আগস্ট</option>
+		<option value="9">সেপ্টেম্বর</option>
+		<option value="10">অক্টোবর</option>
+		<option value="11">নভেম্বর</option>
+		<option value="12">ডিসেম্বর</option>
+	
+	</select>
+	দিনঃ<input type="number" name="day" min="1" max="31" size="3"><input type="submit" value="দেখুন"></fieldset>
+</form>
+<br><a href="month.html">মাস অনুযায়ী দেখুন</a>
+<br><br><details><summary>এপ সম্পর্কে</summary>
+আল্লাহ তায়া’লা বলেন “আমি মানুষ ও জ্বিন জাতিকে একমাত্র আমার ইবাদতের জন্যই সৃষ্টি করেছি”(আল কুরআন ৫১ঃ৫৬)।<br><br>
+আর ইবাদতের জন্য সময় নির্দিষ্ট। স্বর্ণ্যযুগে এই সময় নির্ধারিত হতো সুর্য ও চাদ দিয়ে। কিন্তু এখন ঘড়ি আসাতে সুর্য ও চাদ এর জটিলতা ছাড়াই অনেক সহজে প্রায় নিখুঁত সময় নির্ধারণ করা যায়। এর জন্য প্রয়োজন সময়সুচীর তালিকা যা কিনা সেই সুর্য আর চাদ দেখেই করা হয়েছে। আর এই কাজটি বাংলাদেশের জন্য করেছে ইসলামিক ফাউন্ডেশন।<br><br> 
+
+ইসলামিক ফাউন্ডেশন এর মুল সমসুচীতে বলা ছিলো ঢাকার সময় থেকে ৭ মিনিট যোগ করতে রাজশাহী এর জন্য। কিন্তু আমার দেখা মতে রাজশাহী শহরে বেশিরভাগ মসজিদ এই সময়সুচী অনুসরণ করা হয় ৬ মিনিট যোগ করে। আবার কিছুদিন থেকে দেখছি অনেক মসজিদে মসজিদে একটি পুরো বছরের সময়সুচীর ক্যালেন্ডার দেওয়া হয়েছে। <a href="img.html">এখানে</a> ক্লিক করে দেখে নিতে পারেন। সেখানে তারা বলেছে এটি ঢাকার সাথে ৬ মিনিট পরে ধরা হয়েছে। আমরা সেই তথ্য গুলিকেই এই এপ এর মধ্যে ঢুকাবার চেষ্টা করেছি। এই এপটা এখন শুধু রাজশাহী ও তার পার্শবর্তী এলাকার জন্যই। <br><br>
+
+আমরা চেষ্টা করেছি শতভাগ শুদ্ধ করার জন্য, তারপরেও যদি কোন ভুল আপনার দৃষ্টিতে পড়ে তবে আমাদের জানালে খুব ভালো হয়।<br><br>
+
+আপনি যদি এই এপটি আপনার কাছে উপকারী মনে হয় তবে আপনার কাছে আমাদের অনুরোধঃ আমাদের জন্য নেক দুয়া করবেন। <br><br>
+
+আল্লাহ তায়া'লা আমাদের সকলকে দ্বীন ও সুন্নাতের উপর টিকে থাকার তওফিক দান করুন - আমিন।<br><br></details>
+<br>
+<details><summary>যোগাযোগ ও শেয়ার</summary>ইমেইলঃ abdboy@protonmail.ch<br>ওয়েবসাইট শেয়ারের জন্যঃ http://abdboy.github.io/toz</details>
+</div>
+<script type="text/javascript">
+	function _(dom) {
+			return document.getElementById(dom);
+		}
+		
+
+var mona=["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বার"];
+if($_get["mon"]!=undefined){
+
+mon=Number($_get["mon"])-1;
+dat=Number($_get["day"]);
+ }
+ if($_get["h"]!=undefined){ hou=$_get["h"];}
+ if($_get["m"]!=undefined){ min=$_get["m"];}
+
+ switch(mon){case 0:var obj = JSON.parse(jan);break;case 1:var obj = JSON.parse(feb);break;case 2:var obj = JSON.parse(mar);break;case 3:var obj = JSON.parse(apr);break;case 4:var obj = JSON.parse(may);break;case 5:var obj = JSON.parse(jun);break;case 6:var obj = JSON.parse(jul);break;case 7:var obj = JSON.parse(aug);break;case 8:var obj = JSON.parse(sep);break;case 9:var obj = JSON.parse(oct);break;case 10:var obj = JSON.parse(nov);break;case 11:var obj = JSON.parse(dec);break;}
+
+_("today").innerHTML=bnn(dat+" "+mona[mon]);
+
+_("ISHROK").innerHTML=bnn(obj[dat-1].ISHROK);
+
+_("ASRSTART").innerHTML=bnn(obj[dat-1].ASRSTART);
+_("CHAST").innerHTML=bnn(obj[dat-1].CHAST);
+//_("DATE").innerHTML=obj[dat-1].DATE;
+_("FAZRFINISH").innerHTML=bnn(obj[dat-1].FAZRFINISH);
+_("FAZRSTART").innerHTML=bnn(obj[dat-1].FAZRSTART);
+_("ISHASTART").innerHTML=bnn(obj[dat-1].ISHASTART);
+
+_("MAGRIB_IFTAR").innerHTML=bnn(obj[dat-1].MAGRIB_IFTAR);
+_("MIDLEDAY").innerHTML=bnn(obj[dat-1].MIDLEDAY);
+_("SUNSET").innerHTML=bnn(obj[dat-1].SUNSET);
+_("TAHAJJUT_SAHRILASTTIME").innerHTML=bnn(obj[dat-1].TAHAJJUT_SAHRILASTTIME);
+_("ZOHRSTART").innerHTML=bnn(obj[dat-1].ZOHRSTART);
+
+function startTime() {
+
+function ampm(th){
+if(th>12){return th-12; }
+else{return th; }
+}
+    var d = new Date();
+var hou=d.getHours();
+var min=d.getMinutes();
+
+    var h = hou;
+    var m = min;
+    var s = d.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    
+    _('clock').innerHTML =
+    bnn(ampm(h)) + " : " + bnn(m) + " : " + bnn(s);
+
+
+_('i').innerHTML =getdur(obj[dat-1].ISHROK,1)+"";
+_('as').innerHTML =getdur(obj[dat-1].ASRSTART,2)+"";
+_('c').innerHTML =getdur(obj[dat-1].CHAST,1)+"";
+_('ff').innerHTML =getdur(obj[dat-1].FAZRFINISH,1)+"";
+_('fs').innerHTML =getdur(obj[dat-1].FAZRSTART,1)+"";
+_('is').innerHTML =getdur(obj[dat-1].ISHASTART,2)+"";
+_('mi').innerHTML =getdur(obj[dat-1].MAGRIB_IFTAR,2)+"";
+_('md').innerHTML =getdur(obj[dat-1].MIDLEDAY,3)+"";
+_('s').innerHTML =getdur(obj[dat-1].SUNSET,2)+"";
+_('th').innerHTML =getdur(obj[dat-1].TAHAJJUT_SAHRILASTTIME,1)+"";
+_('zs').innerHTML =getdur(obj[dat-1].ZOHRSTART,3)+"";
+
+
+
+
+
+    var t = setTimeout(startTime, 500);
+
+
+
+
+}
+function getb(g){
+	g=String(g);
+			var tempnum=g.split(".");
+			return tempnum[0];
+}
+function getdur(t,w){
+
+var d = new Date();
+var hou=d.getHours();
+var min=d.getMinutes();
+    var h = hou ;
+    var m = min;
+     var s = d.getSeconds();
+   
+    
+    t=String(t);
+			var tempnum=t.split(".");
+			var dh=Number(tempnum[0]);
+			var dm=Number(tempnum[1]);
+			var ds=(dh*3600)+(dm*60);
+			switch(w){
+
+				
+				case 1: //tahazzut-chast
+				 if((d.getDate()!=dat&&mon!=(d.getMonth()+1))){var res="---";}else{
+				 	//hou>=12||
+				 var ts= (h*3600)+(m*60)+s;
+                var ress=(ds-ts);
+              
+              var resh=getb(ress/3600);
+              var resm=getb((ress-(resh*3600))/60);
+              var resss=ress-((resh*3600)+(resm*60));
+                var res=bnn(resh+":"+checkTime(resm)+":"+checkTime(resss));
+
+                
+                if (ress<0) {res="---";}}//res+="<hr>"+h+","+hou;
+                break;
+
+
+                case 2:  //asr-isha
+                if((d.getDate()!=dat&&mon!=(d.getMonth()+1))){var res="---";}else{
+                	//hou<=11||
+                	dh+=12;
+                	ds=(dh*3600)+(dm*60);
+
+				 
+				 var ts= (h*3600)+(m*60)+s;
+                var ress=(ds-ts);
+              
+              var resh=getb(ress/3600);
+              var resm=getb((ress-(resh*3600))/60);
+              var resss=ress-((resh*3600)+(resm*60));
+                var res=bnn(resh+":"+checkTime(resm)+":"+checkTime(resss));
+
+                
+                if (ress<0) {res="---";}} //res+="<hr>"+h+","+hou;
+                break;
+
+
+			    case 3:    //middle_day-zuhr
+				 if((d.getDate()!=dat&&mon!=(d.getMonth()+1))){var res="---";}else{
+				  
+				//hou>=13||
+				 ds=(dh*3600)+(dm*60);
+				 var ts= (h*3600)+(m*60)+s;
+                var ress=(ds-ts);
+              
+              var resh=getb(ress/3600);
+              var resm=getb((ress-(resh*3600))/60);
+              var resss=ress-((resh*3600)+(resm*60));
+                var res=bnn(resh+":"+checkTime(resm)+":"+checkTime(resss));
+
+                
+                if (ress<0) {res="---";}}//res+="<hr>"+h+","+hou;
+                break;
+
+			}
+
+			return res;
+
+}
+
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  
+    return i;
+}
+
+</script>
+<br><br><i style="font-size:10px;position:absolute; right: 0%;">Version:<span id="foot"  ></sapn></i>
+
+</body>
+</html>
