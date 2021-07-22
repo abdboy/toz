@@ -1,5 +1,8 @@
 [
-
+{
+"v": "1.6",
+"wn": "<br>*this update for minor update of v1.5 that has 64 zilla.<br>*minor update: problem fixed for Dhaka zilla"
+},
     {
 "v": "1.5",
 "wn": "<br>*64 zilla added<br>*Custom calculation"
