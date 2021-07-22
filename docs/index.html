@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="icon" type="image/png" href="bitmap.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Timetable for Solat, Siam in BD with custom calculation.">
+	<style type="text/css">
+		
+.icon{
+	border-radius: 40px;
+	height: 100px;
+	width: 100px;
+float: left;
+}	
+.tright{
+	margin-top: 25px;
+	font-size: 25px;
+}
+*{}
+.s_top{
+	margin-top: 50px;
+}
+#urll{
+	background: green;
+	color: white;
+	width: 100%;
+    text-align: center;
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.shot{
+	overflow-x: auto;
+	scrollbar-color:green transparent;
+	scrollbar-width:thin;
+width: 80%;
+	height: 520px;
+display: flex;
+overflow-y: hidden;
+margin: auto;
+	
+}
+
+.shot::-webkit-scrollbar{
+	width: 10px;
+	height: 10px;
+}
+.shot::-webkit-scrollbar-thumb{
+	background: green;
+	border-radius: 10px;
+}
+.shot::-webkit-scrollbar-track{
+	background: transparent;
+}
+
+
+.shot > img{
+	height:500px ;
+	width:250px;
+	float: left;
+	padding-right : 10px; 
+}
+
+
+#full{
+	height: 100%
+	width:100%;
+	position: fixed;
+	display: none;
+	top: 0;
+	right: 0;
+	left:0;
+	bottom: 0;
+	background: #000000aa;
+	
+}
+
+    #full > img{
+	width: 100%;
+	height:100%;
+	/*margin-left: 35%;*/
+
+	
+}
+
+@media screen and (min-width: 480px) {
+    #full > img{
+	width: 25%;
+	height:95%;
+	margin-left: 35%;
+	
+}
+}
+.close{
+	
+	position: fixed;
+	top: 0;
+	right: 0;
+	background: red;
+	color: white;
+	padding: 40px;
+	border-radius: 40px;
+}
+</style>
+
+</head>
+<body>
+<img class="icon" src="bitmap.png">&nbsp;
+<div class="tright">&nbsp;&nbsp;&nbsp;Time of Zikir</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>V1.5</small>
+
+
+<div class="s_top">
+Timetable of Solat<sub>(Namaz)</sub>, Siyam<sub>(Roza)</sub> of Bangladesh for 64 zilla with custom calculation.<br><br>
+<a id="urll">Waiting to collect updated apk...</a>
+<br>
+
+<br>
+<div class="shot">
+<img src="1.png" id="1png" onclick="sbig('1png')">
+<img src="2.png" id="2png" onclick="sbig('2png')">
+<img src="3.png" id="3png" onclick="sbig('3png')">
+</div>
+<div id="full">
+<img src="3.png" id="out" ><div class="close" onclick="cclose()">Close</div>
+</div>
+</div>
+
+	<script>
+var xmlhttp = new XMLHttpRequest();
+
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log(xmlhttp.responseText);
+        var myArr = JSON.parse(xmlhttp.responseText);
+
+        myF(myArr);
+      
+    }
+};
+xmlhttp.open("GET", "https://api.github.com/repos/abdboy/toz/releases/latest", true);
+xmlhttp.send();
+
+function myF(arr) {
+   
+   
+   
+	var f2=arr.assets[0].browser_download_url;
+        
+
+        
+    document.getElementById("urll").href = f2;
+      document.getElementById("urll").innerHTML = "Download apk";
+}
+	
+
+	function sbig(n) {
+ var srcc=document.getElementById(n).src;
+ document.getElementById("out").src=srcc;
+  document.getElementById("full").style.display="block";
+	
+		
+	}
+	function cclose() {
+		document.getElementById("full").style.display="none";
+	}
+</script>
+	
+</body>
+</html>
