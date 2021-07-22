@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Setting of toz</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<style type="text/css">
+
+	  @font-face{
+font-family: 'solaimanlipi';
+src: url('soli.ttf');
+}
+*{
+font-family: 'solaimanlipi';
+}
+	body{
+ background: #ffff00;
+ text-align: center;
+
+
+	}
+	input,select{
+	background: #ffff00;
+}
+a, summary{text-decoration: none;
+  border: 2px solid black;
+  color:black;
+ padding: 2px;}
+.ancr{
+text-decoration: underline;
+color: blue;
+border: 0px solid black;
+}
+	.nnum{
+		border-radius: 15px;
+		background: cyan;
+		padding:10px;
+	}
+	table{
+		width: 100%;
+		
+
+	}
+	
+	tr:nth-child(even) {
+    background-color: #ffdd00;
+}
+tr:nth-child(odd) {
+    background-color: #ffee00;
+}
+tr:hover{
+		background: green;
+		color: black;
+	}
+.bor{
+	border: solid 2px black;
+}
+.mini{
+	font-size: 9px;
+}
+#clock{
+	font-size: 50px;
+}
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: rgb(255,199,0);
+    overflow-x: auto; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+
+
+
+
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+
+}
+
+.sidenav input,select{
+	background: rgb(255,199,0);
+}
+button{
+	border: 2px solid black;
+	background: transparent;
+
+}
+*{
+	font-size: 17px;
+}
+</style>
+</head>
+<body>
+	আপনার বিভাগঃ<select id="zsec" oninput="zfun(this.value)"></select><br><br>
+	<div id="zdd"></div>
+
+	<div id="out"></div>
+	<div id="tbl"></div>
+<script type="text/javascript">
+	d0=["কুমিল্লা","ফেনী","ব্রাহ্মণবাড়িয়া","রাঙ্গামাটি","নোয়াখালী","চাঁদপুর","লক্ষ্মীপুর","চট্টগ্রাম","কক্সবাজার","খাগড়াছড়ি","বান্দরবান"];
+d1=["সিরাজগঞ্জ","পাবনা","বগুড়া","রাজশাহী","নাটোর","জয়পুরহাট","চাঁপাইনবাবগঞ্জ","নওগাঁ"];
+d2=["যশোর","সাতক্ষীরা","মেহেরপুর","নড়াইল","চুয়াডাঙ্গা","কুষ্টিয়া","মাগুরা","খুলনা","বাগেরহাট","ঝিনাইদহ"];
+d3=["ঝালকাঠি","পটুয়াখালী","পিরোজপুর","বরিশাল","ভোলা","বরগুনা"];
+d4=["সিলেট","মৌলভীবাজার","হবিগঞ্জ","সুনামগঞ্জ"];
+d5=["নরসিংদী","গাজীপুর","শরীয়তপুর","নারায়ণগঞ্জ","টাঙ্গাইল","কিশোরগঞ্জ","মানিকগঞ্জ","ঢাকা","মুন্সিগঞ্জ","রাজবাড়ী","মাদারীপুর","গোপালগঞ্জ","ফরিদপুর"];
+d6=["পঞ্চগড়","দিনাজপুর","লালমনিরহাট","নীলফামারী","গাইবান্ধা","ঠাকুরগাঁও","রংপুর","কুড়িগ্রাম"];
+d7=["শেরপুর","ময়মনসিংহ","জামালপুর","নেত্রকোণা"];
+dD=["চট্টগ্রাম","রাজশাহী","খুলনা","বরিশাল","সিলেট","ঢাকা","রংপুর","ময়মনসিংহ"];
+
+function _(a) {
+	return document.getElementById(a);
+}
+var zsecv="<option>বিভাগ নির্বাচন করুন</option>";
+for (var i = 0; i < dD.length; i++) {
+	zsecv+=`<option class="div" value=${[i]}>${dD[i]}</option>`;
+}
+
+
+_("zsec").innerHTML=zsecv;
+
+function zfun(z){
+_("zdd").innerHTML=`আপনার জেলাঃ<select id="zdsec" oninput="zzfun(this.value)"></select>`;
+var zsecv="<option value='8'>জেলা নির্বাচন করুন</option>";
+var fdz=null;
+switch(Number(z)){
+	case 0:fdz=d0; break;
+	case 1:fdz=d1; break;
+	case 2:fdz=d2; break;
+	case 3:fdz=d3; break;
+	case 4:fdz=d4; break;
+	case 5:fdz=d5; break;
+	case 6:fdz=d6; break;
+	case 7:fdz=d7; break;
+  
+}
+if(fdz!=null){
+for (var i = 0; i < fdz.length; i++) {
+	zsecv+=`<option class="dis" value=${z}-${[i]}>${fdz[i]}</option>`;
+}
+
+
+_("zdsec").innerHTML=zsecv;
+
+			}else{_("zdd").innerHTML="";}
+
+
+}
+var zzi=null;
+var nadd=null;
+var addar=null;
+var tdata=abdboy.read();
+//tdata="";
+if(tdata!=""){
+	usesaved(tdata);
+}
+
+
+function usesaved(udata) {
+	zzi=tdata.split(";")[0];
+	nadd=tdata.split(";")[1];
+   addar=tdata.split(";")[2].split(",");
+   var divn=Number(zzi.split("-")[0]);
+   var disn=Number(zzi.split("-")[1]);
+           document.getElementsByClassName("div")[divn].selected="true";
+zfun(divn);document.getElementsByClassName("dis")[disn].selected="true";
+
+zzfun(zzi,true);
+
+}
+function zzfun(zz,opt=false) {
+	zzi=zz;
+	
+switch(zz){
+case "5-1":
+case "5-2":
+case "5-10":
+case "3-2":
+case "3-3":
+case "3-0":
+case "3-5":
+nadd="1,1";
+break;
+
+// case "":
+case "7-1":
+case "5-4":
+case "2-8":
+case "7-2":
+case "7-0":
+case "5-6":
+nadd="2,2";
+break;
+
+case "5-12":
+case "5-11":
+case "1-0":
+case "2-3":
+case "2-7":
+nadd="3,3";
+break;
+
+case "2-6":
+case "5-9":
+case "1-1":
+nadd="4,4";
+break;
+
+case "2-1":
+case "2-5":
+case "2-0":
+case "6-6":
+case "2-9":
+
+
+case "6-3":
+case "2-4":
+case "6-7":
+case "6-4":
+
+
+nadd="6,6";
+break;
+
+case "1-3":
+case "1-2":
+case "2-2":
+case "6-2":
+nadd="7,7";
+break;
+
+case "1-6":
+case "1-7":
+case "1-4":
+nadd="8,8";
+break;
+
+case "6-1":
+case "6-5":
+case "6-0":
+nadd="6,11";
+break;
+
+case "5-0":
+case "5-3":
+case "5-8":
+case "0-5":
+nadd="-1,-1";
+break;
+
+case "5-5":
+case "3-1":
+case "3-4":
+case "0-6":
+nadd="-2,-2";
+break;
+
+case "7-3":
+case "0-0":
+case "0-2":
+nadd="-3,-3";
+break;
+
+case "0-4":
+case "0-1":
+case "4-3":
+case "4-2":
+nadd="-4,-4";
+break;
+
+case "0-7":
+nadd="-5,-5";
+break;
+
+case "0-8":
+case "4-0":
+case "4-1":
+nadd="-6,-6";
+break;
+
+case "0-9":
+case "0-3":
+case "0-10":
+nadd="-7,-7";
+break;
+
+case "1-5":
+nadd="এই সময় ইসলামিক ফাউন্ডেশনের চার্ট এ পাওয়া যাই নাই- কিন্তু কমপক্ষে দুইটি ওয়েবসাইট এ দেখেছি তারা এখানে 2 মিনিট দিয়েছে।,এই সময় ইসলামিক ফাউন্ডেশনের চার্ট এ পাওয়া যাই নাই- কিন্তু কমপক্ষে দুইটি ওয়েবসাইট এ দেখেছি তারা এখানে 8 মিনিট দিয়েছে।";
+break;
+}
+
+
+
+var si=nadd.split(",");
+var sha=si[0];
+var ifa=si[1];
+
+var addi=[sha,sha,sha,sha,sha,sha,sha,ifa,ifa,ifa,ifa];
+if (zz=="1-3") {addi=[6,6,6,6,6,6,6,6,6,6,6];}//for rajshahi suggestion
+if (zz=="1-5") {addi=[2,2,2,2,2,2,2,8,8,8,8];}//for joypurhat
+if(opt){addi=addar;}
+_("tbl").innerHTML=`<br>
+নিম্নের সারণিতে ২য় কলামে ইসলামিক ফাউন্ডেশন কর্তৃক সুপারিশকৃত মিনিট সংখ্যা যা ঢাকার সময় থেকে যোগ/বিয়োগ করতে হবে তা দেওয়া হলো। কিন্তু যদি এমন হয় যে আপনার এলাকায় এই মিনিট এর চেয়ে বেশি অথবা কম যোগ/বিয়োগ করতে হয় তবে এই এপ এ ব্যাবহারের জন্য্য ঢাকার সময় থেকে যোগ/বিয়োগ এর অন্য মিনিট সংখ্যাটি দিতে পারেন ৩য় কলামে। যেমনঃ রাজশাহীতে ঢাকার সময় থেকে ৭ মিনিট যোগ করার কথা, কিন্তু এই অঞ্চলে ৬ মিনিট যোগ করেই বেশি চলে। এই এপ এ ৩য় কলাম অনুযায়ীই হিসাব করা হয়। যদি ঢাকার সময় থেকে ৫ মিনিট বাড়াতে হয় তবে লিখতে হবে 5 আর যদি ৫ মিনিট কমাতে হয় তাহলে লিখতে হবে বিয়োগ চিহ্ন দিয়ে সংখ্যাটি মানে -5 এইভাবে লিখে "সংরক্ষন করুন" এ ট্যাপ করুন।<br><br>
+<table border="1" style="border-collapse:collapse;">
+	<tr><th>ওয়াক্ত</th><th>ই.ফা. কতৃক সুপারিশকৃত<br>ঢাকার সময় থেকে যোগ/বিয়োগ হবে(মিনিট)</th><th>এই এপ এর জন্য<br>ঢাকার সময় থেকে যোগ/বিয়োগ হবে(মিনিট)</th></tr>
+	<tr><td>তাহাজ্জুত ও সাহরীর<br>শেষ সময়</td><td><span class="num" id="TAHAJJUT_SAHRILASTTIME" >${sha}</span></td><td id="th"><input type="number" max="999" value="${addi[0]}"></td></tr>
+	<tr><td>ফজর শুরু</td><td><span class="num" id="FAZRSTART" ></span></td><td id="fs"><input type="number" max="999" value="${addi[1]}"></td></tr>
+
+	<tr><td>ফজর শেষ(সুর্যদয়)</td><td><span class="num" id="FAZRFINISH" ></span></td><td id="ff"><input type="number" max="999" value="${addi[2]}"></td></tr>
+
+	<tr><td>ইশরাক শুরু</td><td><span class="num" id="ISHROK" ></span></td><td id="i"><input type="number" max="999" value="${addi[3]}"></td></tr>
+
+	<tr><td>চাশত শুরু</td><td><span class="num" id="CHAST" ></span></td><td id="c"><input type="number" max="999" value="${addi[4]}"></td></tr>
+
+	<tr><td>মধ্য দিবস</td><td><span class="num" id="MIDLEDAY" ></span></td><td id="md"><input type="number" max="999" value="${addi[5]}"></td></tr>
+
+	<tr><td>যোহর শুরু</td><td><span class="num" id="ZOHRSTART" ></td><td id="zs"><input type="number" max="999" value="${addi[6]}"></td></tr>
+
+	<tr><td>আসর শুরু</td><td><span class="num" id="ASRSTART" ></span></td><td id="as"><input type="number" max="999" value="${addi[7]}"></td></tr>
+
+	<tr><td>সুর্যাস্ত</td><td><span class="num" id="SUNSET" ></span></td><td id="s"><input type="number" max="999" value="${addi[8]}"></td></tr>
+
+	<tr><td>মাগরিব ও ইফতার</td><td><span class="num" id="MAGRIB_IFTAR" >${ifa}</span></td><td id="mi"><input type="number" max="999" value="${addi[9]}"></td></tr>
+
+	<tr><td>ইশা শুরু</td><td><span class="num" id="ISHASTART" ></span></td><td id="is"><input type="number" max="999" value="${addi[10]}"></td></tr>
+
+	
+</table>
+<br>
+<button onclick="save()">সংরক্ষণ করুন</button>
+`;
+
+
+
+
+
+}
+
+
+
+function save() {
+	var data=zzi+";"+nadd+";";
+	var inputArray=document.getElementsByTagName('input');
+	
+	for (var i = 0; i < inputArray.length; i++) {
+		data+=inputArray[i].value+",";
+	}
+	
+	abdboy.write(data);
+	window.location.assign("index.html");
+
+}
+</script>
+
+
+
+</body>
+</html>
