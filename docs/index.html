@@ -201,7 +201,7 @@ margin: auto;
 
 <img class="icon" src="bitmap.png">&nbsp;
 <div class="tright">&nbsp;&nbsp;&nbsp;Time of Zikir</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>V1.6</small>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="tag">Loading to get update version number...</small>
 
 
 <div class="s_top">
@@ -242,7 +242,9 @@ function myF(arr) {
    
 	var f2=arr.assets[0].browser_download_url;
         
+var f3=arr.tag_name; 
 
+document.getElementById("tag").innerHTML =f3;
         
     document.getElementById("urll").href = f2;
       document.getElementById("urll").innerHTML = "Download apk";
